@@ -1,1 +1,0 @@
-# farrukhpashazadeh.github.io
