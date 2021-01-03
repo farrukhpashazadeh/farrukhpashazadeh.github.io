@@ -1,0 +1,349 @@
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+@keyframes toRight {
+  0% {
+    left: 0;
+    opacity: 0; }
+  50% {
+    opacity: .5; }
+  100% {
+    left: 50%;
+    opacity: 1; } }
+
+@keyframes typing {
+  from {
+    width: 0; }
+  to {
+    width: 20%; } }
+
+@keyframes cursor {
+  from, to {
+    border-color: transparent; }
+  50% {
+    border-color: #fff; } }
+
+@keyframes toLeft {
+  0% {
+    left: 70%;
+    opacity: 0; }
+  50% {
+    opacity: .5; }
+  100% {
+    left: 50%;
+    opacity: 1; } }
+
+@keyframes toUp {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3);
+    top: 80%;
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes toDown {
+  0% {
+    top: 92%;
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #111517;
+  width: 100%;
+  height: 100vh;
+  z-index: -9; }
+  @media only screen and (max-width: 37.5em) {
+    canvas {
+      display: none; } }
+
+.loadline {
+  position: fixed;
+  bottom: 0;
+  height: 3px; }
+
+.loadline-white {
+  width: 100%;
+  background: #111517;
+  z-index: 99; }
+
+.loadline-red {
+  background: #ef0d33;
+  z-index: 100; }
+
+.scroll-down {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 3rem;
+  transition: all 1s; }
+  @media only screen and (max-width: 37.5em) {
+    .scroll-down {
+      display: none; } }
+
+.top-92 {
+  top: 92%; }
+  @media only screen and (max-width: 37.5em) {
+    .top-92 {
+      display: none; } }
+
+.top-94 {
+  top: 94%;
+  animation: toDown 1s; }
+  @media only screen and (max-width: 37.5em) {
+    .top-94 {
+      display: none; } }
+
+.scale_rotate-y:hover {
+  transform: scale(1.5) rotateY(360deg); }
+
+.scale_rotate:hover {
+  transform: scale(1.5) rotate(720deg); }
+
+html {
+  font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+
+b {
+  text-decoration: none !important; }
+
+li {
+  list-style: none;
+  list-style: none; }
+
+*::selection {
+  color: #111517; }
+
+.opacity-02 {
+  opacity: .2; }
+
+@font-face {
+  font-family: tge-bold;
+  src: url(./fonts/trump_gothic_east_bold.ttf); }
+
+body {
+  font-family: tge-bold, sans-serif;
+  font-weight: 400;
+  background: #fff;
+  font-size: 1.6rem; }
+
+.main {
+  height: 100vh;
+  background-color: rgba(17, 21, 23, 0.98);
+  color: #fff; }
+  @media only screen and (max-width: 37.5em) {
+    .main {
+      background-color: #111517; } }
+  .main__heading {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6.5rem;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    animation: toRight 1s; }
+    @media only screen and (max-width: 37.5em) {
+      .main__heading {
+        font-size: 1.9rem; } }
+  .main__typing {
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    border-right: 4px solid #fff;
+    white-space: nowrap;
+    letter-spacing: .3rem;
+    animation: typing 1.7s steps(30, end), cursor 1s step-end infinite; }
+    @media only screen and (max-width: 37.5em) {
+      .main__typing {
+        top: 50%;
+        font-size: 100%; } }
+  .main__red-line {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 2px;
+    background-color: #ef0d33;
+    animation: toLeft 1s; }
+    @media only screen and (max-width: 37.5em) {
+      .main__red-line {
+        top: 53%;
+        font-size: 1.8rem;
+        width: 45%; } }
+  .main__skills {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    color: #fff;
+    font-size: 2rem;
+    transform: translate(-50%, -50%);
+    animation: toUp 1s; }
+    @media only screen and (max-width: 37.5em) {
+      .main__skills {
+        top: 60%;
+        font-size: 1.8rem;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center; } }
+    .main__skills i {
+      transition: transform 1s; }
+
+.contact-header i {
+  padding: 2rem;
+  transition: all .5s;
+  color: #fff; }
+  @media only screen and (max-width: 37.5em) {
+    .contact-header i {
+      width: 100%;
+      margin-top: 15rem;
+      padding: 0 3rem; } }
+
+.contact-footer i {
+  padding: 2rem;
+  transition: all .5s;
+  color: #fff; }
+
+.section-websites .background-website-1 {
+  background: linear-gradient(45deg, #56cad5, #247ad4); }
+
+.section-websites .background-website-2 {
+  background: #1b2a2f; }
+
+.section-websites .background-website-3 {
+  background: linear-gradient(to right, #11998e, #38ef7d); }
+
+.section-websites__website {
+  height: 90vh;
+  padding: 15rem 0; }
+  @media only screen and (max-width: 37.5em) {
+    .section-websites__website {
+      height: 85vh;
+      padding: 5rem 2rem; } }
+  .section-websites__website__intro--heading {
+    color: #fff;
+    font-size: 5.5rem; }
+    @media only screen and (max-width: 37.5em) {
+      .section-websites__website__intro--heading {
+        font-size: 2.5rem; } }
+  .section-websites__website__intro--text {
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: 200;
+    margin-bottom: 5rem; }
+    @media only screen and (max-width: 37.5em) {
+      .section-websites__website__intro--text {
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+        width: 100%; } }
+  .section-websites__website__intro--btn:link, .section-websites__website__intro--btn:visited {
+    background-color: #ef0d33;
+    color: #fff;
+    padding: 1.5rem 3rem;
+    transition: all .2s;
+    letter-spacing: .1rem;
+    text-transform: uppercase; }
+  .section-websites__website__intro--btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(17, 21, 23, 0.8); }
+  .section-websites__website__intro--btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(17, 21, 23, 0.8); }
+  .section-websites__website__intro--used-languages {
+    color: #fff;
+    padding: 5px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    margin: 5rem 0; }
+    @media only screen and (max-width: 37.5em) {
+      .section-websites__website__intro--used-languages {
+        margin-top: 3rem; } }
+    .section-websites__website__intro--used-languages i {
+      transition: transform 1s; }
+  .section-websites__website__right-side--image {
+    width: 100%;
+    transition: transform 1s; }
+    @media only screen and (max-width: 37.5em) {
+      .section-websites__website__right-side--image {
+        width: 100%;
+        padding-bottom: 5rem; } }
+    .section-websites__website__right-side--image:hover {
+      cursor: crosshair;
+      transform: scale(1.15); }
+      @media only screen and (max-width: 37.5em) {
+        .section-websites__website__right-side--image:hover {
+          transform: scale(1); } }
+
+.footer {
+  background-color: #111517;
+  color: #fff; }
+  .footer__text {
+    margin: 0;
+    font-size: 3.5rem; }
+    @media only screen and (max-width: 37.5em) {
+      .footer__text {
+        padding-bottom: 5rem; } }
+  .footer .scroll-up {
+    color: #ef0d33;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: all .7s; }
+  .footer__copyright {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300; }
+
+.header {
+  background: rgba(17, 21, 23, 0.8);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9;
+  transition: all .3s;
+  padding: 1rem 0; }
+  .header include respond(phone) {
+    background: #111517; }
+  @media only screen and (max-width: 37.5em) {
+    .header {
+      position: absolute;
+      padding: 3rem 0; } }
+  .header__logo {
+    width: 8rem; }
+    @media only screen and (max-width: 37.5em) {
+      .header__logo {
+        width: 8rem;
+        position: absolute;
+        top: 5rem;
+        left: 50%;
+        transform: translate(-50%, -50%); } }
